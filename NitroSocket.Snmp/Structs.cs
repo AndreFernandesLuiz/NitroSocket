@@ -7,6 +7,7 @@ namespace NitroSocket.Snmp
     [StructLayout(LayoutKind.Sequential)]
     public struct VENDORINFO
     {
+
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
         public string vendorName;
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
