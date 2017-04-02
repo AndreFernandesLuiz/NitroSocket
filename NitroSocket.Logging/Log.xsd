@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+	attributeFormDefault="unqualified" 
+	elementFormDefault="qualified" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Logging">
+		<xs:annotation>
+			<xs:documentation>http://logging.apache.org/</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>				
+				<xs:element name="appender" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+
+						<xs:sequence>
+							<xs:element name="applicationName" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="value" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="file" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="value" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="appendToFile" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="value" type="xs:boolean"/>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="rollingStyle" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="value" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="datePattern" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="value" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="layout" minOccurs="1" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="conversionPattern">
+											<xs:complexType>
+												<xs:attribute name="value" type="xs:string" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+
+									<xs:attribute name="type" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Library.Logging.Layout.PatternLayout"/>
+												<xs:enumeration value="Library.Logging.Layout.RawTimeStampLayout"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+
+								</xs:complexType>
+							</xs:element>
+
+
+							<xs:element name="filter" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										
+										<xs:element name="levelToMatch" minOccurs="1" maxOccurs="1">
+											<xs:complexType>
+												<xs:attribute name="value" type="LevelMatching"/>
+											</xs:complexType>
+										</xs:element>
+
+										<xs:element name="acceptOnMatch" minOccurs="1" maxOccurs="1">
+											<xs:complexType>
+												<xs:attribute name="value" type="xs:boolean"/>
+											</xs:complexType>
+										</xs:element>
+
+									</xs:sequence>
+
+									<xs:attribute name="type" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="Library.Logging.Filter.LevelMatchFilter"/>
+												<xs:enumeration value="Library.Logging.Filter.LevelRangeFilter"/>
+												<xs:enumeration value="Library.Logging.Filter.StringMatchFilter"/>
+												<xs:enumeration value="Library.Logging.Filter.DenyAllFilter"/>
+												<xs:enumeration value="Library.Logging.Filter.FilterSkeleton"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									
+								</xs:complexType>
+							</xs:element>
+							
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required" />
+
+						<xs:attribute name="type" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Library.Logging.Appender.ConsoleAppender"/>
+									<xs:enumeration value="Library.Logging.Appender.EventLogAppender"/>
+									<xs:enumeration value="Library.Logging.Appender.AspNetTraceAppender"/>
+									<xs:enumeration value="Library.Logging.Appender.FileAppender"/>
+									<xs:enumeration value="Library.Logging.Appender.NetSendAppender"/>
+									<xs:enumeration value="Library.Logging.Appender.RollingFileAppender"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="root" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="level" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="value" type="LevelMatching"/>
+								</xs:complexType>
+							</xs:element>
+							
+							<xs:element name="appender-ref" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element name="logger" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="level" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="value" type="LevelMatching"/>
+								</xs:complexType>
+							</xs:element>
+
+							<xs:element name="appender-ref" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="ref" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="additivity" type="xs:boolean" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="LevelMatching" id="LevelMatching">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OFF"/>
+			<xs:enumeration value="FATAL"/>
+			<xs:enumeration value="ERROR"/>
+			<xs:enumeration value="WARN"/>
+			<xs:enumeration value="INFO"/>
+			<xs:enumeration value="TRACE"/>
+			<xs:enumeration value="ALL"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

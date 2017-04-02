@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95D70EA4-A4AB-41CA-A085-6857A131027B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Library.Logging</RootNamespace>
+    <AssemblyName>Library.Logging</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Library.Logging.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WIN32</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;WIN32</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Appender\AdoNetAppender.cs" />
+    <Compile Include="Appender\AnsiColorTerminalAppender.cs" />
+    <Compile Include="Appender\AppenderCollection.cs" />
+    <Compile Include="Appender\AppenderSkeleton.cs" />
+    <Compile Include="Appender\AspNetTraceAppender.cs" />
+    <Compile Include="Appender\BufferingAppenderSkeleton.cs" />
+    <Compile Include="Appender\BufferingForwardingAppender.cs" />
+    <Compile Include="Appender\ColoredConsoleAppender.cs" />
+    <Compile Include="Appender\ConsoleAppender.cs" />
+    <Compile Include="Appender\DebugAppender.cs" />
+    <Compile Include="Appender\EventLogAppender.cs" />
+    <Compile Include="Appender\FileAppender.cs" />
+    <Compile Include="Appender\ForwardingAppender.cs" />
+    <Compile Include="Appender\IAppender.cs" />
+    <Compile Include="Appender\IBulkAppender.cs" />
+    <Compile Include="Appender\LocalSyslogAppender.cs" />
+    <Compile Include="Appender\MemoryAppender.cs" />
+    <Compile Include="Appender\NetSendAppender.cs" />
+    <Compile Include="Appender\OutputDebugStringAppender.cs" />
+    <Compile Include="Appender\RemoteSyslogAppender.cs" />
+    <Compile Include="Appender\RemotingAppender.cs" />
+    <Compile Include="Appender\RollingFileAppender.cs" />
+    <Compile Include="Appender\SmtpAppender.cs" />
+    <Compile Include="Appender\SmtpPickupDirAppender.cs" />
+    <Compile Include="Appender\TelnetAppender.cs" />
+    <Compile Include="Appender\TextWriterAppender.cs" />
+    <Compile Include="Appender\TraceAppender.cs" />
+    <Compile Include="Appender\UdpAppender.cs" />
+    <Compile Include="Config\AliasDomainAttribute.cs" />
+    <Compile Include="Config\AliasRepositoryAttribute.cs" />
+    <Compile Include="Config\BasicConfigurator.cs" />
+    <Compile Include="Config\ConfiguratorAttribute.cs" />
+    <Compile Include="Config\LoggingConfigurationSectionHandler.cs" />
+    <Compile Include="Config\DomainAttribute.cs" />
+    <Compile Include="Config\DOMConfigurator.cs" />
+    <Compile Include="Config\DOMConfiguratorAttribute.cs" />
+    <Compile Include="Config\PluginAttribute.cs" />
+    <Compile Include="Config\RepositoryAttribute.cs" />
+    <Compile Include="Config\SecurityContextProviderAttribute.cs" />
+    <Compile Include="Config\XmlConfigurator.cs" />
+    <Compile Include="Config\XmlConfiguratorAttribute.cs" />
+    <Compile Include="Core\CompactRepositorySelector.cs" />
+    <Compile Include="Core\DefaultRepositorySelector.cs" />
+    <Compile Include="Core\ErrorCode.cs" />
+    <Compile Include="Core\IAppenderAttachable.cs" />
+    <Compile Include="Core\IErrorHandler.cs" />
+    <Compile Include="Core\IFixingRequired.cs" />
+    <Compile Include="Core\ILogger.cs" />
+    <Compile Include="Core\ILoggerWrapper.cs" />
+    <Compile Include="Core\IOptionHandler.cs" />
+    <Compile Include="Core\IRepositorySelector.cs" />
+    <Compile Include="Core\ITriggeringEventEvaluator.cs" />
+    <Compile Include="Core\Level.cs" />
+    <Compile Include="Core\LevelCollection.cs" />
+    <Compile Include="Core\LevelEvaluator.cs" />
+    <Compile Include="Core\LevelMap.cs" />
+    <Compile Include="Core\LocationInfo.cs" />
+    <Compile Include="Core\LogException.cs" />
+    <Compile Include="Core\LoggerManager.cs" />
+    <Compile Include="Core\LoggerWrapperImpl.cs" />
+    <Compile Include="Core\LoggingEvent.cs" />
+    <Compile Include="Core\LogImpl.cs" />
+    <Compile Include="Core\LogImplBusiness.cs" />
+    <Compile Include="Core\SecurityContext.cs" />
+    <Compile Include="Core\SecurityContextProvider.cs" />
+    <Compile Include="Core\WrapperMap.cs" />
+    <Compile Include="DateFormatter\AbsoluteTimeDateFormatter.cs" />
+    <Compile Include="DateFormatter\DateTimeDateFormatter.cs" />
+    <Compile Include="DateFormatter\IDateFormatter.cs" />
+    <Compile Include="DateFormatter\Iso8601DateFormatter.cs" />
+    <Compile Include="DateFormatter\SimpleDateFormatter.cs" />
+    <Compile Include="EventLogAppenderInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EventLogAppenderInstaller.Designer.cs">
+      <DependentUpon>EventLogAppenderInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filter\DenyAllFilter.cs" />
+    <Compile Include="Filter\FilterDecision.cs" />
+    <Compile Include="Filter\FilterSkeleton.cs" />
+    <Compile Include="Filter\IFilter.cs" />
+    <Compile Include="Filter\LevelMatchFilter.cs" />
+    <Compile Include="Filter\LevelRangeFilter.cs" />
+    <Compile Include="Filter\LoggerMatchFilter.cs" />
+    <Compile Include="Filter\MdcFilter.cs" />
+    <Compile Include="Filter\NdcFilter.cs" />
+    <Compile Include="Filter\PropertyFilter.cs" />
+    <Compile Include="Filter\StringMatchFilter.cs" />
+    <Compile Include="GlobalContext.cs" />
+    <Compile Include="ILog.cs" />
+    <Compile Include="Layout\ExceptionLayout.cs" />
+    <Compile Include="Layout\ILayout.cs" />
+    <Compile Include="Layout\IRawLayout.cs" />
+    <Compile Include="Layout\Layout2RawLayoutAdapter.cs" />
+    <Compile Include="Layout\LayoutSkeleton.cs" />
+    <Compile Include="Layout\PatternLayout.cs" />
+    <Compile Include="Layout\Pattern\AppDomainPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\DatePatternConverter.cs" />
+    <Compile Include="Layout\Pattern\ExceptionPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\FileLocationPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\FullLocationPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\IdentityPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\LevelPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\LineLocationPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\LoggerPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\MessagePatternConverter.cs" />
+    <Compile Include="Layout\Pattern\MethodLocationPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\NamedPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\NdcPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\PatternLayoutConverter.cs" />
+    <Compile Include="Layout\Pattern\PropertyPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\RelativeTimePatternConverter.cs" />
+    <Compile Include="Layout\Pattern\ThreadPatternConverter.cs" />
+    <Compile Include="Layout\Pattern\TypeNamePatternConverter.cs" />
+    <Compile Include="Layout\Pattern\UserNamePatternConverter.cs" />
+    <Compile Include="Layout\Pattern\UtcDatePatternConverter.cs" />
+    <Compile Include="Layout\RawLayoutConverter.cs" />
+    <Compile Include="Layout\RawPropertyLayout.cs" />
+    <Compile Include="Layout\RawTimeStampLayout.cs" />
+    <Compile Include="Layout\RawUtcTimeStampLayout.cs" />
+    <Compile Include="Layout\SimpleLayout.cs" />
+    <Compile Include="Layout\XmlLayout.cs" />
+    <Compile Include="Layout\XmlLayoutBase.cs" />
+    <Compile Include="Layout\XmlLayoutSchemaLog4j.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="LogicalThreadContext.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="MDC.cs" />
+    <Compile Include="NDC.cs" />
+    <Compile Include="ObjectRenderer\DefaultRenderer.cs" />
+    <Compile Include="ObjectRenderer\IObjectRenderer.cs" />
+    <Compile Include="ObjectRenderer\RendererMap.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
+    <Compile Include="Plugin\IPluginFactory.cs" />
+    <Compile Include="Plugin\PluginCollection.cs" />
+    <Compile Include="Plugin\PluginMap.cs" />
+    <Compile Include="Plugin\PluginSkeleton.cs" />
+    <Compile Include="Plugin\RemoteLoggingServerPlugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Hierarchy\DefaultLoggerFactory.cs" />
+    <Compile Include="Repository\Hierarchy\Hierarchy.cs" />
+    <Compile Include="Repository\Hierarchy\ILoggerFactory.cs" />
+    <Compile Include="Repository\Hierarchy\Logger.cs" />
+    <Compile Include="Repository\Hierarchy\LoggerKey.cs" />
+    <Compile Include="Repository\Hierarchy\ProvisionNode.cs" />
+    <Compile Include="Repository\Hierarchy\RootLogger.cs" />
+    <Compile Include="Repository\Hierarchy\XmlHierarchyConfigurator.cs" />
+    <Compile Include="Repository\IBasicRepositoryConfigurator.cs" />
+    <Compile Include="Repository\ILoggerRepository.cs" />
+    <Compile Include="Repository\IXmlRepositoryConfigurator.cs" />
+    <Compile Include="Repository\LoggerRepositorySkeleton.cs" />
+    <Compile Include="ThreadContext.cs" />
+    <Compile Include="Util\AppenderAttachedImpl.cs" />
+    <Compile Include="Util\CompositeProperties.cs" />
+    <Compile Include="Util\ContextPropertiesBase.cs" />
+    <Compile Include="Util\CountingQuietTextWriter.cs" />
+    <Compile Include="Util\CyclicBuffer.cs" />
+    <Compile Include="Util\EmptyCollection.cs" />
+    <Compile Include="Util\EmptyDictionary.cs" />
+    <Compile Include="Util\FormattingInfo.cs" />
+    <Compile Include="Util\GlobalContextProperties.cs" />
+    <Compile Include="Util\LevelMapping.cs" />
+    <Compile Include="Util\LevelMappingEntry.cs" />
+    <Compile Include="Util\LogicalThreadContextProperties.cs" />
+    <Compile Include="Util\LogLog.cs" />
+    <Compile Include="Util\NativeError.cs" />
+    <Compile Include="Util\NullDictionaryEnumerator.cs" />
+    <Compile Include="Util\NullEnumerator.cs" />
+    <Compile Include="Util\NullSecurityContext.cs" />
+    <Compile Include="Util\OnlyOnceErrorHandler.cs" />
+    <Compile Include="Util\OptionConverter.cs" />
+    <Compile Include="Util\PatternConverter.cs" />
+    <Compile Include="Util\PatternParser.cs" />
+    <Compile Include="Util\PatternString.cs" />
+    <Compile Include="Util\PatternStringConverters\AppDomainPatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\DatePatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\EnvironmentPatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\IdentityPatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\LiteralPatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\NewLinePatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\ProcessIdPatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\PropertyPatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\RandomStringPatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\UserNamePatternConverter.cs" />
+    <Compile Include="Util\PatternStringConverters\UtcDatePatternConverter.cs" />
+    <Compile Include="Util\PropertiesDictionary.cs" />
+    <Compile Include="Util\ProtectCloseTextWriter.cs" />
+    <Compile Include="Util\QuietTextWriter.cs" />
+    <Compile Include="Util\ReaderWriterLock.cs" />
+    <Compile Include="Util\ReadOnlyPropertiesDictionary.cs" />
+    <Compile Include="Util\ReusableStringWriter.cs" />
+    <Compile Include="Util\SystemInfo.cs" />
+    <Compile Include="Util\SystemStringFormat.cs" />
+    <Compile Include="Util\TextWriterAdapter.cs" />
+    <Compile Include="Util\ThreadContextProperties.cs" />
+    <Compile Include="Util\ThreadContextStack.cs" />
+    <Compile Include="Util\ThreadContextStacks.cs" />
+    <Compile Include="Util\Transform.cs" />
+    <Compile Include="Util\TypeConverters\BooleanConverter.cs" />
+    <Compile Include="Util\TypeConverters\ConversionNotSupportedException.cs" />
+    <Compile Include="Util\TypeConverters\ConverterRegistry.cs" />
+    <Compile Include="Util\TypeConverters\EncodingConverter.cs" />
+    <Compile Include="Util\TypeConverters\IConvertFrom.cs" />
+    <Compile Include="Util\TypeConverters\IConvertTo.cs" />
+    <Compile Include="Util\TypeConverters\IPAddressConverter.cs" />
+    <Compile Include="Util\TypeConverters\PatternLayoutConverter.cs" />
+    <Compile Include="Util\TypeConverters\PatternStringConverter.cs" />
+    <Compile Include="Util\TypeConverters\TypeConverter.cs" />
+    <Compile Include="Util\TypeConverters\TypeConverterAttribute.cs" />
+    <Compile Include="Util\WindowsSecurityContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Library.Logging.snk" />
+    <None Include="Log.xsd">
+      <SubType>
+      </SubType>
+      <LastGenOutput>Log.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>IF "$(ConfigurationName)"=="Release" (
+	IF "$(PlatformName)"=="x64" (
+		CALL "$(SolutionDir)Delivery.cmd" "$(TargetPath)" "$(SolutionDir)" Delivery Library Bin_x64\
+	)
+	IF "$(PlatformName)"=="x86" (
+		CALL "$(SolutionDir)Delivery.cmd" "$(TargetPath)" "$(SolutionDir)" Delivery Library Bin_x86\
+	)
+	IF "$(PlatformName)"=="AnyCPU" (
+		CALL "$(SolutionDir)Delivery.cmd" "$(TargetPath)" "$(SolutionDir)" Delivery Library Bin_AnyCPU\
+	)
+)
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>
