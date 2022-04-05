@@ -1,5 +1,5 @@
 # NitroSocket
-The most unstable and high performance socket library
+The high performance socket library
 
 Welcome to the NitroSocket wiki!
 
